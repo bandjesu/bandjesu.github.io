@@ -109,34 +109,40 @@
                 margin-bottom: 10px;
             }
         }
-     .content-box {
-    background-color: #fff;
-    border: 2px solid #add8e6; /* Light blue border */
-    padding: 20px;
-    margin: 20px;
-    text-align: center;
-    box-sizing: border-box; /* Include padding and border in box sizing */
-    width: calc(50% - 40px); /* 50% width with 40px total margin */
-    display: inline-block;
-}
 
-.content-box img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px; /* Optional: Add border-radius for rounded corners */
-}
+        .content-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
 
-.content-box p {
-    margin-top: 10px;
-    color: #333;
-}
+        .content-box {
+            background-color: #fff;
+            border: 2px solid #add8e6; /* Light blue border */
+            padding: 20px;
+            margin: 20px;
+            text-align: center;
+            box-sizing: border-box; /* Include padding and border in box sizing */
+            width: calc(50% - 40px); /* 50% width with 40px total margin */
+        }
 
-/* Media query for smaller screens */
-@media screen and (max-width: 768px) {
-    .content-box {
-        width: calc(100% - 40px); /* Full width with 40px total margin */
-    }
-}
+        .content-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px; /* Optional: Add border-radius for rounded corners */
+        }
+
+        .content-box p {
+            margin-top: 10px;
+            color: #333;
+        }
+
+        /* Media query for smaller screens */
+        @media screen and (max-width: 768px) {
+            .content-box {
+                width: calc(100% - 40px); /* Full width with 40px total margin */
+            }
+        }
     </style>
 </head>
 <body>
@@ -156,7 +162,7 @@
         <a href="https://bandjesu.github.io/lieder">Lieder</a>
     </nav>
 </header>
-
+    
 <div class="content-box">
     <img src="https://bandjesu.github.io/example1.jpeg" alt="Image">
     <p>Hier ist ein Kelch. Hallo Michi! Hier kommt text hin. Zum Beispiel: Beispiel Beispiel Beispiel Beispiel Beispiel Beispiel Beispiel Beispiel Beispiel Beispiel Beispiel
