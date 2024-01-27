@@ -1,7 +1,135 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auftritte - Ein Ton, ein Herz</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #fff;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        #logo {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        #header-text-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
+        #header-text {
+            font-size: 20px;
+            color: #3498db;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        #sub-text {
+            font-size: 14px;
+            color: #7f8c8d;
+        }
+
+        nav {
+            display: flex;
+            margin-top: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #2c3e50;
+            margin-right: 20px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #e74c3c;
+        }
+
+        nav a.active {
+            text-decoration: underline;
+            color: #e74c3c;
+        }
+
+        @media screen and (max-width: 768px) {
+            #header-text {
+                font-size: 18px;
+            }
+
+            #sub-text {
+                font-size: 12px;
+            }
+
+            nav a {
+                margin-right: 15px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            #logo {
+                width: 40px;
+            }
+
+            header {
+                padding: 10px;
+            }
+
+            #header-text {
+                font-size: 16px;
+                margin-right: 5px;
+            }
+
+            #sub-text {
+                font-size: 10px;
+            }
+
+            nav {
+                flex-direction: column;
+                align-items: flex-end;
+            }
+
+            nav a {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>This is "Auftritte" </p>
+
+<header>
+    <div id="header-text-wrapper">
+        <img id="logo" src="https://bandjesu.github.io/logo.png" alt="Logo">
+        <div>
+            <div id="header-text">Ein Ton, ein Herz</div>
+            <div id="sub-text">Jugendband Herz Jesu</div>
+        </div>
+    </div>
+    <nav>
+        <a href="https://bandjesu.github.io">Home</a>
+        <a href="https://bandjesu.github.io/mitglieder">Mitglieder</a>
+        <a href="https://bandjesu.github.io/auftritte" class="active">Auftritte</a>
+        <a href="https://bandjesu.github.io/lieder">Lieder</a>
+    </nav>
+</header>
+
+<!-- Your content goes here -->
+
 </body>
 </html>
