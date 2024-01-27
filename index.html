@@ -8,18 +8,16 @@
         body {
             margin: 0;
             padding: 0;
+            font-family: 'Arial', sans-serif;
         }
 
         header {
             background-color: #ffffff;
-            width: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
             padding: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             display: flex;
             align-items: center;
+            justify-content: space-between;
         }
 
         #logo {
@@ -31,24 +29,21 @@
         #header-text-wrapper {
             display: flex;
             flex-direction: column;
-            margin-right: 10px;
         }
 
         #header-text {
-            font-size: 24px;
+            font-size: 18px;
             color: #000000;
         }
 
         #sub-text {
-            font-size: 16px;
+            font-size: 14px;
             color: #808080;
             margin-top: 5px;
         }
 
         nav {
             display: flex;
-            flex-wrap: wrap; /* Enable flex items to wrap to the next line */
-            margin-left: auto;
         }
 
         nav a {
@@ -58,10 +53,41 @@
             font-weight: bold;
         }
 
-        @media screen and (max-width: 610px) {
+        @media screen and (max-width: 768px) {
+            #header-text {
+                font-size: 16px;
+            }
+
+            #sub-text {
+                font-size: 12px;
+            }
+
+            nav a {
+                margin-right: 10px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            #logo {
+                width: 40px;
+            }
+
+            #header-text {
+                font-size: 14px;
+            }
+
+            #sub-text {
+                font-size: 10px;
+            }
+
+            nav {
+                flex-direction: column;
+                align-items: flex-end;
+            }
+
             nav a {
                 margin-right: 0;
-                margin-bottom: 10px; /* Add space between stacked links */
+                margin-bottom: 10px;
             }
         }
     </style>
@@ -69,16 +95,16 @@
 <body>
 
 <header>
-    <img id="logo" src="https://bandjesu.github.io/logo.png" alt="Logo">
     <div id="header-text-wrapper">
         <div id="header-text">Ein Ton, ein Herz</div>
         <div id="sub-text">Jugendband Herz Jesu</div>
     </div>
+    <img id="logo" src="https://bandjesu.github.io/logo.png" alt="Logo">
     <nav>
         <a href="https://bandjesu.github.io">Home</a>
         <a href="https://bandjesu.github.io/mitglieder">Mitglieder</a>
-        <a href="https://bandjesu.github.io/lieder">Lieder</a>
         <a href="https://bandjesu.github.io/auftritte">Auftritte</a>
+        <a href="https://bandjesu.github.io/lieder">Lieder</a>
     </nav>
 </header>
 
@@ -86,3 +112,4 @@
 
 </body>
 </html>
+
