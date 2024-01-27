@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Ein Ton, ein Herz</title>
+    <title>Ein Ton, ein Herz</title>
     <style>
         body {
             margin: 0;
@@ -16,6 +16,7 @@
             padding: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             display: flex;
+            flex-wrap: wrap; /* Allow flex items to wrap to the next line */
             align-items: center;
             justify-content: space-between;
         }
@@ -29,6 +30,7 @@
         #header-text-wrapper {
             display: flex;
             flex-direction: column;
+            align-items: flex-end;
         }
 
         #header-text {
@@ -44,6 +46,7 @@
 
         nav {
             display: flex;
+            margin-top: 10px; /* Add some space between the text and the navigation links */
         }
 
         nav a {
@@ -95,11 +98,11 @@
 <body>
 
 <header>
+    <img id="logo" src="https://bandjesu.github.io/logo.png" alt="Logo">
     <div id="header-text-wrapper">
         <div id="header-text">Ein Ton, ein Herz</div>
         <div id="sub-text">Jugendband Herz Jesu</div>
     </div>
-    <img id="logo" src="https://bandjesu.github.io/logo.png" alt="Logo">
     <nav>
         <a href="https://bandjesu.github.io">Home</a>
         <a href="https://bandjesu.github.io/mitglieder">Mitglieder</a>
