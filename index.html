@@ -109,12 +109,15 @@
                 margin-bottom: 10px;
             }
         }
-        .content-box {
+     .content-box {
     background-color: #fff;
     border: 2px solid #add8e6; /* Light blue border */
     padding: 20px;
     margin: 20px;
     text-align: center;
+    box-sizing: border-box; /* Include padding and border in box sizing */
+    width: calc(50% - 40px); /* 50% width with 40px total margin */
+    display: inline-block;
 }
 
 .content-box img {
@@ -126,6 +129,13 @@
 .content-box p {
     margin-top: 10px;
     color: #333;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+    .content-box {
+        width: calc(100% - 40px); /* Full width with 40px total margin */
+    }
 }
     </style>
 </head>
