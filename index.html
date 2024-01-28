@@ -11,8 +11,7 @@
             font-family: 'Helvetica Neue', sans-serif;
             background-color: #f9f9f9;
             color: #333;
-            margin-top: 60px;
-            padding: 20px;
+            padding-top: 80px; /* Adjusted padding for better content visibility */
         }
 
         header {
@@ -30,7 +29,7 @@
         }
 
         #logo {
-            width: 50px;
+            width: 40px; /* Smaller logo for a more compact header */
             height: auto;
             margin-right: 10px;
         }
@@ -41,29 +40,30 @@
         }
 
         #header-text {
-            font-size: 20px;
+            font-size: 18px; /* Slightly smaller font for the header text */
             color: #3498db;
             font-weight: bold;
             margin-right: 10px;
         }
 
         #sub-text {
-            font-size: 14px;
+            font-size: 12px; /* Smaller font for the sub-text */
             color: #7f8c8d;
         }
 
         nav {
             display: flex;
             margin-top: 10px;
-            margin-right: 10px; /* Move the links a bit more to the left */
+            margin-right: 10px;
         }
 
         nav a {
             text-decoration: none;
             color: #2c3e50;
-            margin-right: 15px; /* Adjust the margin for links */
+            margin-right: 10px; /* Adjusted margin for links */
             font-weight: bold;
             transition: color 0.3s ease;
+            font-size: 14px; /* Smaller font for navigation links */
         }
 
         nav a:hover {
@@ -75,7 +75,6 @@
             color: #e74c3c;
         }
 
-        /* Improved styles for content boxes */
         .content-box {
             background-color: #fff;
             border-radius: 8px;
@@ -96,6 +95,25 @@
             padding: 20px;
             font-size: 16px;
             line-height: 1.6;
+        }
+
+        /* Media query for smaller screens (phones) */
+        @media (max-width: 600px) {
+            #logo {
+                width: 30px; /* Adjusted logo size for smaller screens */
+            }
+
+            #header-text {
+                font-size: 16px; /* Adjusted font size for smaller screens */
+            }
+
+            #sub-text {
+                display: none; /* Hide sub-text on smaller screens */
+            }
+
+            nav a {
+                font-size: 12px; /* Smaller font for navigation links on smaller screens */
+            }
         }
     </style>
 </head>
