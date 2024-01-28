@@ -11,15 +11,16 @@
             font-family: 'Helvetica Neue', sans-serif;
             background-color: #f9f9f9;
             color: #333;
-            margin-top: 60px; /* Adjust the value based on your header height */
-            padding: 20px; /* Add padding to the body */
+            margin-top: 60px;
+            padding: 20px;
         }
 
         header {
             position: fixed;
             top: 0;
+            left: 0;
             width: 100%;
-            background-color: #fff;
+            background-color: #3498db; /* Updated background color */
             padding: 10px 20px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             display: flex;
@@ -37,40 +38,39 @@
         #header-text-wrapper {
             display: flex;
             align-items: center;
+            color: #fff; /* Set text color to white */
         }
 
         #header-text {
             font-size: 20px;
-            color: #3498db;
             font-weight: bold;
             margin-right: 10px;
         }
 
         #sub-text {
             font-size: 14px;
-            color: #7f8c8d;
         }
 
         nav {
             display: flex;
             margin-top: 10px;
+            margin-left: -10px; /* Move the links slightly left */
         }
 
         nav a {
             text-decoration: none;
-            color: #2c3e50;
+            color: #fff;
             margin-right: 20px;
             font-weight: bold;
             transition: color 0.3s ease;
         }
 
         nav a:hover {
-            color: #e74c3c;
+            text-decoration: underline;
         }
 
         nav a.active {
             text-decoration: underline;
-            color: #e74c3c;
         }
 
         /* Improved styles for content boxes */
@@ -85,7 +85,9 @@
         .content-box img {
             width: 100%;
             height: auto;
-            border-bottom: 1px solid #ddd; /* Add a border between image and text */
+            border-bottom: 1px solid #ddd;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
         }
 
         .content-box p {
@@ -120,7 +122,8 @@
 
 <div class="content-box">
     <img src="https://bandjesu.github.io/example2.jpeg" alt="Image">
-    <p>Hier ist ein Foto von Jonathan. Hallo Michi! Hier kommt text hin. Zum Beispiel: </p>
+    <p>Hier ist ein Foto von einer Girrafe. Hallo Michi! Hier kommt text hin. Zum Beispiel: </p>
 </div>
+
 </body>
 </html>
