@@ -12,6 +12,7 @@
             background-color: #f9f9f9;
             color: #333;
             margin-top: 60px; /* Adjust the value based on your header height */
+            padding: 20px; /* Add padding to the body */
         }
 
         header {
@@ -24,7 +25,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            z-index: 1000; /* Set a higher z-index to ensure it appears above other elements */
+            z-index: 1000;
         }
 
         #logo {
@@ -72,8 +73,26 @@
             color: #e74c3c;
         }
 
-        /* ... (rest of your styles remain unchanged) ... */
+        /* Improved styles for content boxes */
+        .content-box {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
 
+        .content-box img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd; /* Add a border between image and text */
+        }
+
+        .content-box p {
+            padding: 20px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
     </style>
 </head>
 <body>
@@ -103,9 +122,5 @@
     <img src="https://bandjesu.github.io/example2.jpeg" alt="Image">
     <p>Hier ist ein Foto von Jonathan. Hallo Michi! Hier kommt text hin. Zum Beispiel: </p>
 </div>
-
-<!-- ... (rest of your HTML remains unchanged) ... -->
-
 </body>
 </html>
-
