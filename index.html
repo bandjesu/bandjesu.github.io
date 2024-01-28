@@ -11,25 +11,24 @@
             font-family: 'Helvetica Neue', sans-serif;
             background-color: #f9f9f9;
             color: #333;
-            padding-top: 80px; /* Adjusted padding for better content visibility */
+            padding-top: 70px; /* Adjust padding to accommodate the fixed header */
         }
 
         header {
             position: fixed;
-            top: 0;
-            left: 0;
             width: 100%;
+            top: 0;
             background-color: #fff;
             padding: 10px 20px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             display: flex;
             align-items: center;
             justify-content: space-between;
-            z-index: 1000;
+            z-index: 1000; /* Ensure the header is above other elements */
         }
 
         #logo {
-            width: 40px; /* Smaller logo for a more compact header */
+            width: 50px;
             height: auto;
             margin-right: 10px;
         }
@@ -40,30 +39,28 @@
         }
 
         #header-text {
-            font-size: 18px; /* Slightly smaller font for the header text */
+            font-size: 20px;
             color: #3498db;
             font-weight: bold;
             margin-right: 10px;
         }
 
         #sub-text {
-            font-size: 12px; /* Smaller font for the sub-text */
+            font-size: 14px;
             color: #7f8c8d;
         }
 
         nav {
             display: flex;
             margin-top: 10px;
-            margin-right: 10px;
         }
 
         nav a {
             text-decoration: none;
             color: #2c3e50;
-            margin-right: 10px; /* Adjusted margin for links */
+            margin-right: 20px;
             font-weight: bold;
             transition: color 0.3s ease;
-            font-size: 14px; /* Smaller font for navigation links */
         }
 
         nav a:hover {
@@ -75,44 +72,46 @@
             color: #e74c3c;
         }
 
-        .content-box {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            overflow: hidden;
-        }
-
-        .content-box img {
-            width: 100%;
-            height: auto;
-            border-bottom: 1px solid #ddd;
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
-        }
-
-        .content-box p {
-            padding: 20px;
-            font-size: 16px;
-            line-height: 1.6;
-        }
-
-        /* Media query for smaller screens (phones) */
-        @media (max-width: 600px) {
-            #logo {
-                width: 30px; /* Adjusted logo size for smaller screens */
-            }
-
+        @media screen and (max-width: 768px) {
             #header-text {
-                font-size: 16px; /* Adjusted font size for smaller screens */
+                font-size: 18px;
             }
 
             #sub-text {
-                font-size: 10px; /* Hide sub-text on smaller screens */
+                font-size: 12px;
             }
 
             nav a {
-                font-size: 12px; /* Smaller font for navigation links on smaller screens */
+                margin-right: 15px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            #logo {
+                width: 40px;
+            }
+
+            header {
+                padding: 10px;
+            }
+
+            #header-text {
+                font-size: 16px;
+                margin-right: 5px;
+            }
+
+            #sub-text {
+                font-size: 10px;
+            }
+
+            nav {
+                flex-direction: column;
+                align-items: flex-end;
+            }
+
+            nav a {
+                margin-right: 0;
+                margin-bottom: 10px;
             }
         }
     </style>
@@ -134,18 +133,8 @@
         <a href="https://bandjesu.github.io/lieder">Lieder</a>
     </nav>
 </header>
-    
-<div class="content-box">
-    <img src="https://bandjesu.github.io/example1.jpeg" alt="Image">
-    <p>Hier ist ein Kelch. Hallo Michi! Hier kommt text hin. Zum Beispiel: </p>
-</div>
 
-<div class="content-box">
-    <img src="https://bandjesu.github.io/example2.jpeg" alt="Image">
-    <p>Hier ist ein Foto von Jonathan. Hallo Michi! Hier kommt text hin. Zum Beispiel: </p>
-</div>
-
-<!-- ... (rest of your HTML remains unchanged) ... -->
+<!-- Your content goes here -->
 
 </body>
 </html>
