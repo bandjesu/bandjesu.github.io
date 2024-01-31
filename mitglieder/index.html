@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mitglieder - Ein Ton, ein Herz</title>
+    <title>Home - Ein Ton, ein Herz</title>
     <style>
         body {
             margin: 0;
@@ -122,7 +122,38 @@
             }
         }
 
-       
+        .content {
+            flex: 1; /* Use remaining vertical space for content */
+            padding: 20px;
+            margin-top: 170px; /* Adjusted to match the header height */
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .title {
+           font-size: 18px;
+            color: #7f8c8d;
+        }
+        .box {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .box img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .box p {
+            font-size: 16px;
+            color: #555;
+        }
+
         footer {
             width: 100%;
             background-color: #333;
@@ -143,14 +174,40 @@
         </div>
     </div>
     <nav>
-        <a href="https://bandjesu.github.io">Home</a>
-        <a href="https://bandjesu.github.io/mitglieder" class="active">Mitglieder</a>
+        <a href="https://bandjesu.github.io" class="active">Home</a>
+        <a href="https://bandjesu.github.io/mitglieder">Mitglieder</a>
         <a href="https://bandjesu.github.io/auftritte">Auftritte</a>
         <a href="https://bandjesu.github.io/lieder">Lieder</a>
     </nav>
 </header>
 
 <!-- Your content goes here -->
+<div class="content">
+  <div class="title"> 
+      <p>Leiter</p>
+ </div>
+    <div class="box">
+        <img src="https://bandjesu.github.io/data/example1.jpeg" alt="Image">
+        <p>Benjamin, spielt seit 8 Jahren Klavier, codiert Webseiten, ist 12, Email: Benlipinski2@gmail.com </p>
+    </div>
+
+    <div class="box">
+        <img src="https://bandjesu.github.io/data/example2.jpeg" alt="Image">
+        <p>Michi, spielt guitarre, 5 Sterne-koch, Alter 9999999, Email: Unbekannt </p>
+    </div>
+  <div class="title"> 
+      <p>Mitglieder</p>
+ </div>
+  <div class="box">
+        <img src="https://bandjesu.github.io/data/example1.jpeg" alt="Image">
+        <p>Clara, spielt Cello, ist nett, Lieblingshobby: Leute erschrecken </p>
+    </div>
+
+    <div class="box">
+        <img src="https://bandjesu.github.io/data/example2.jpeg" alt="Image">
+        <p>Jonathan, ist nervig, spielt Geige, bild stimmt 1 zu 1</p>
+    </div>
+</div>
 
 <footer>
     ©Benjamin Lipinski 2024
