@@ -124,13 +124,14 @@
 
         #content {
             display: flex;
-            flex-direction: column;
+            flex-wrap: wrap; /* Allow images to wrap to the next line */
+            justify-content: space-around; /* Distribute images evenly */
             align-items: center;
             margin-top: 180px;
         }
 
         .image-container {
-            margin-top: 20px;
+            margin: 20px;
             width: 80%; /* Adjust width to control image size */
             max-width: 300px; /* Set max-width for smaller screens */
         }
@@ -156,10 +157,9 @@
             justify-content: center;
         }
 
-        .audio-button svg {
+        .audio-button img {
             width: 16px;
             height: 16px;
-            fill: #fff;
             margin-right: 5px;
         }
 
@@ -230,22 +230,16 @@
 </header>
 
 <div id="content">
-    <div class="image-container" id="image-container-1" onclick="toggleAudio('audio-1')" role="button" tabindex="0" class="touch-interaction">
+    <div class="image-container" id="image-container-1" onclick="toggleAudio('audio-1', 'button-1')" role="button" tabindex="0" class="touch-interaction">
         <div class="image-overlay">
             <img src="https://bandjesu.github.io/data/gloria.jpeg" alt="Gloria">
             <div>
                 <div class="audio-buttons">
                     <button class="audio-button touch-interaction" onclick="downloadImage('https://bandjesu.github.io/data/gloria.jpeg')">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M20 12l-1.41 1.41L13 7.83V20h-2V7.83L5.41 13.41 4 12l8-8 8 8z"/>
-                        </svg>
+                        <img src="https://image.flaticon.com/icons/svg/148/148744.svg" alt="Download Icon">
                         Download
                     </button>
-                    <button class="audio-button touch-interaction">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M10 6H6v12h4l5 6V6z"/>
-                            <path d="M0 0h24v24H0z" fill="none"/>
-                        </svg>
+                    <button class="audio-button touch-interaction" id="button-1" onclick="toggleAudio('audio-1', 'button-1')">
                         <img src="https://image.flaticon.com/icons/svg/34/34672.svg" alt="Music Note" style="width: 16px; height: 16px; margin-right: 5px;">
                         Spiele Musik
                     </button>
@@ -254,24 +248,18 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Add more image containers for each additional picture -->
-    <div class="image-container" id="image-container-2" onclick="toggleAudio('audio-2')" role="button" tabindex="0" class="touch-interaction">
+    <div class="image-container" id="image-container-2" onclick="toggleAudio('audio-2', 'button-2')" role="button" tabindex="0" class="touch-interaction">
         <div class="image-overlay">
             <img src="https://bandjesu.github.io/data/another_image.jpeg" alt="Another Image">
             <div>
                 <div class="audio-buttons">
                     <button class="audio-button touch-interaction" onclick="downloadImage('https://bandjesu.github.io/data/another_image.jpeg')">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M20 12l-1.41 1.41L13 7.83V20h-2V7.83L5.41 13.41 4 12l8-8 8 8z"/>
-                        </svg>
+                        <img src="https://image.flaticon.com/icons/svg/148/148744.svg" alt="Download Icon">
                         Download
                     </button>
-                    <button class="audio-button touch-interaction">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M10 6H6v12h4l5 6V6z"/>
-                            <path d="M0 0h24v24H0z" fill="none"/>
-                        </svg>
+                    <button class="audio-button touch-interaction" id="button-2" onclick="toggleAudio('audio-2', 'button-2')">
                         <img src="https://image.flaticon.com/icons/svg/34/34672.svg" alt="Music Note" style="width: 16px; height: 16px; margin-right: 5px;">
                         Spiele Musik
                     </button>
@@ -290,23 +278,23 @@
     function downloadImage(imageUrl) {
         var link = document.createElement('a');
         link.href = imageUrl;
-        link.download = 'gloria.jpeg'; // Set download filename to "gloria.jpeg"
+        link.download = 'Gloria.jpeg'; // Set download filename to "Gloria.jpeg"
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
     }
 
-    function toggleAudio(audioId) {
+    function toggleAudio(audioId, buttonId) {
         var audio = document.getElementById(audioId);
-        var button = document.querySelector(`[onclick="toggleAudio('${audioId}')"] .audio-button`);
+        var button = document.getElementById(buttonId);
         
         if (audio.paused) {
             audio.play();
-            button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 6H6v12h4l5 6V6z"/><path d="M0 0h24v24H0z" fill="none"/></svg> Stoppe Musik';
+            button.innerHTML = '<img src="https://image.flaticon.com/icons/svg/34/34672.svg" alt="Music Note" style="width: 16px; height: 16px; margin-right: 5px;"> Stoppe Musik';
         } else {
             audio.pause();
             audio.currentTime = 0;
-            button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 6H6v12h4l5 6V6z"/><path d="M0 0h24v24H0z" fill="none"/></svg> Spiele Musik';
+            button.innerHTML = '<img src="https://image.flaticon.com/icons/svg/34/34672.svg" alt="Music Note" style="width: 16px; height: 16px; margin-right: 5px;"> Spiele Musik';
         }
     }
 </script>
