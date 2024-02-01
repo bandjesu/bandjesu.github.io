@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lieder - Ein Ton, ein Herz</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-+Rzdr1Xi9RxLGTyEhGzgP4R+cL3+Yr5uhVCb1S4eG3sftgxLVFEfWvOJ+RWgfvu6UwqTb5jUef0ds5dDPN0lA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        body {
+   body {
             margin: 0;
             padding: 0;
             font-family: 'Helvetica Neue', sans-serif;
@@ -126,14 +127,15 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100%;
-            margin-top: 170px; /* Adjusted to match the header height */
+            height: 100%; 
+            margin-top: 180px; /* Adjusted to match the header height */
+
         }
 
         #image-container {
             position: relative;
-            width: 130px;
-            height: 200px;
+            width: 250px; /* Increased width */
+            height: 400px; /* Increased height */
             overflow: hidden;
             border: 1px solid #000;
             border-radius: 5px;
@@ -177,6 +179,14 @@
             font-size: 14px;
             text-decoration: none;
             display: inline-block;
+            display: flex;
+            align-items: center; /* Center icon and text vertically */
+            justify-content: center; /* Center icon and text horizontally */
+        }
+
+        #download-button i,
+        #music-button i {
+            margin-right: 5px; /* Adjust spacing between icon and text */
         }
 
         footer {
@@ -191,28 +201,23 @@
 <body>
 
 <header>
-    <div id="header-text-wrapper">
-        <img id="logo" src="https://bandjesu.github.io/data/logo.png" alt="Logo">
-        <div>
-            <div id="header-text">Ein Ton, ein Herz</div>
-            <div id="sub-text">Jugendband Herz Jesu</div>
-        </div>
-    </div>
-    <nav>
-        <a href="https://bandjesu.github.io">Home</a>
-        <a href="https://bandjesu.github.io/mitglieder">Mitglieder</a>
-        <a href="https://bandjesu.github.io/auftritte">Auftritte</a>
-        <a href="https://bandjesu.github.io/lieder" class="active">Lieder</a>
-    </nav>
+    <!-- Your existing header content here -->
 </header>
+
+<nav>
+    <a href="https://bandjesu.github.io" class="">Home</a>
+    <a href="https://bandjesu.github.io/mitglieder">Mitglieder</a>
+    <a href="https://bandjesu.github.io/auftritte">Auftritte</a>
+    <a href="https://bandjesu.github.io/lieder" class="active">Lieder</a>
+</nav>
 
 <div id="content">
     <div id="image-container">
         <img src="https://bandjesu.github.io/data/gloria.jpeg" alt="Gloria" id="image">
         <div id="image-overlay">
             <div>Gloria</div>
-            <button id="download-button" onclick="downloadImage()">Download</button>
-            <button id="music-button" onclick="playAudio()">Play Music</button>
+            <button id="download-button" onclick="downloadImage()"><i class="fas fa-download"></i></button>
+            <button id="music-button" onclick="playAudio()"><i class="fas fa-music"></i></button>
         </div>
     </div>
 </div>
@@ -232,11 +237,11 @@
     }
 
     function playAudio() {
-        // Add your audio playback logic here
-        // Example: You can use the Audio API to play audio
-        alert('Audio playback functionality will be implemented here.');
+        var audio = new Audio('https://bandjesu.github.io/data/gloria.m4a');
+        audio.play();
     }
 </script>
 
 </body>
 </html>
+
