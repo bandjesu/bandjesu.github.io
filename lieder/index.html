@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lieder - Ein Ton, ein Herz</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-+Rzdr1Xi9RxLGTyEhGzgP4R+cL3+Yr5uhVCb1S4eG3sftgxLVFEfWvOJ+RWgfvu6UwqTb5jUef0ds5dDPN0lA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body {
             margin: 0;
@@ -182,8 +181,11 @@
             justify-content: center; /* Center icon and text horizontally */
         }
 
-        #download-button i,
-        #music-button i {
+        #download-button svg,
+        #music-button svg {
+            width: 16px;
+            height: 16px;
+            fill: #fff; /* Icon color */
             margin-right: 5px; /* Adjust spacing between icon and text */
         }
 
@@ -219,8 +221,19 @@
         <img src="https://bandjesu.github.io/data/gloria.jpeg" alt="Gloria" id="image">
         <div id="image-overlay">
             <div>Gloria</div>
-            <button id="download-button" onclick="downloadImage()"><i class="fas fa-download"></i></button>
-            <button id="music-button" onclick="playAudio()"><i class="fas fa-music"></i></button>
+            <button id="download-button" onclick="downloadImage()">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M20 12l-1.41 1.41L13 7.83V20h-2V7.83L5.41 13.41 4 12l8-8 8 8z"/>
+                </svg>
+                Download
+            </button>
+            <button id="music-button" onclick="playAudio()">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M10 6H6v12h4l5 6V6z"/>
+                    <path d="M0 0h24v24H0z" fill="none"/>
+                </svg>
+                Play Audio
+            </button>
         </div>
     </div>
 </div>
