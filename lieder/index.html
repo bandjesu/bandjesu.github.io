@@ -124,49 +124,23 @@
 
         #content {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            height: 100%;
-            margin-top: 180px; /* Added margin-top */
+            margin-top: 180px;
         }
 
-        #image-container {
-            position: relative;
-            width: 250px; /* Increased width */
-            height: 400px; /* Increased height */
-            overflow: hidden;
-            border: 1px solid #000;
-            border-radius: 5px;
-        }
-
-        #image-container img {
+        .image-container {
+            margin-top: 20px;
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: filter 0.3s ease;
         }
 
-        #image-container:hover img {
-            filter: brightness(50%);
+        .audio-buttons {
+            display: flex;
+            margin-top: 10px;
+            flex-wrap: wrap;
         }
 
-        #image-overlay {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            color: #fff;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        #image-container:hover #image-overlay {
-            opacity: 1;
-        }
-
-        #download-button,
-        #music-button {
+        .audio-button {
             background-color: #3498db;
             color: #fff;
             padding: 10px;
@@ -177,16 +151,49 @@
             font-size: 14px;
             text-decoration: none;
             display: flex;
-            align-items: center; /* Center icon and text vertically */
-            justify-content: center; /* Center icon and text horizontally */
+            align-items: center;
+            justify-content: center;
         }
 
-        #download-button svg,
-        #music-button svg {
+        .audio-button svg {
             width: 16px;
             height: 16px;
-            fill: #fff; /* Icon color */
-            margin-right: 5px; /* Adjust spacing between icon and text */
+            fill: #fff;
+            margin-right: 5px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            transition: filter 0.3s ease;
+        }
+
+        .image-overlay {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border: 1px solid #000;
+            border-radius: 5px;
+        }
+
+        .image-overlay:hover img {
+            filter: brightness(50%);
+        }
+
+        .image-overlay div {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #fff;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .image-overlay:hover div {
+            opacity: 1;
         }
 
         footer {
@@ -195,6 +202,11 @@
             color: #fff;
             text-align: center;
             padding: 10px 0;
+        }
+
+        /* Add a new style for touch interactions */
+        .touch-interaction {
+            cursor: pointer;
         }
     </style>
 </head>
@@ -209,7 +221,7 @@
         </div>
     </div>
     <nav>
-        <a href="https://bandjesu.github.io" class="">Home</a>
+        <a href="https://bandjesu.github.io">Home</a>
         <a href="https://bandjesu.github.io/mitglieder">Mitglieder</a>
         <a href="https://bandjesu.github.io/auftritte">Auftritte</a>
         <a href="https://bandjesu.github.io/lieder" class="active">Lieder</a>
@@ -217,25 +229,31 @@
 </header>
 
 <div id="content">
-    <div id="image-container">
-        <img src="https://bandjesu.github.io/data/gloria.jpeg" alt="Gloria" id="image">
-        <div id="image-overlay">
-            <div>Gloria</div>
-            <button id="download-button" onclick="downloadImage()">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M20 12l-1.41 1.41L13 7.83V20h-2V7.83L5.41 13.41 4 12l8-8 8 8z"/>
-                </svg>
-                Download
-            </button>
-            <button id="music-button" onclick="playAudio()">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M10 6H6v12h4l5 6V6z"/>
-                    <path d="M0 0h24v24H0z" fill="none"/>
-                </svg>
-                Play Audio
-            </button>
+    <div class="image-container" id="image-container-1" onclick="toggleAudio('audio-1')" role="button" tabindex="0" class="touch-interaction">
+        <div class="image-overlay">
+            <img src="https://bandjesu.github.io/data/gloria.jpeg" alt="Gloria">
+            <div>
+                <div>Gloria</div>
+                <div class="audio-buttons">
+                    <button class="audio-button touch-interaction" onclick="downloadImage('https://bandjesu.github.io/data/gloria.jpeg')">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M20 12l-1.41 1.41L13 7.83V20h-2V7.83L5.41 13.41 4 12l8-8 8 8z"/>
+                        </svg>
+                        Download
+                    </button>
+                    <button class="audio-button touch-interaction">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M10 6H6v12h4l5 6V6z"/>
+                            <path d="M0 0h24v24H0z" fill="none"/>
+                        </svg>
+                        Play Audio
+                    </button>
+                </div>
+                <audio id="audio-1" src="https://bandjesu.github.io/data/gloria.m4a"></audio>
+            </div>
         </div>
     </div>
+    <!-- Add more image containers for each additional picture -->
 </div>
 
 <footer>
@@ -243,18 +261,23 @@
 </footer>
 
 <script>
-    function downloadImage() {
+    function downloadImage(imageUrl) {
         var link = document.createElement('a');
-        link.href = 'https://bandjesu.github.io/data/gloria.jpeg';
-        link.download = 'gloria.jpeg';
+        link.href = imageUrl;
+        link.download = 'image.jpeg';
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
     }
 
-    function playAudio() {
-        var audio = new Audio('https://bandjesu.github.io/data/gloria.m4a');
-        audio.play();
+    function toggleAudio(audioId) {
+        var audio = document.getElementById(audioId);
+        if (audio.paused) {
+            audio.play();
+        } else {
+            audio.pause();
+            audio.currentTime = 0;
+        }
     }
 </script>
 
