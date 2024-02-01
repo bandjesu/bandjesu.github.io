@@ -6,7 +6,7 @@
     <title>Lieder - Ein Ton, ein Herz</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-+Rzdr1Xi9RxLGTyEhGzgP4R+cL3+Yr5uhVCb1S4eG3sftgxLVFEfWvOJ+RWgfvu6UwqTb5jUef0ds5dDPN0lA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-   body {
+        body {
             margin: 0;
             padding: 0;
             font-family: 'Helvetica Neue', sans-serif;
@@ -127,9 +127,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100%; 
-            margin-top: 180px; /* Adjusted to match the header height */
-
+            height: 100%;
         }
 
         #image-container {
@@ -201,15 +199,20 @@
 <body>
 
 <header>
-    <!-- Your existing header content here -->
+    <div id="header-text-wrapper">
+        <img id="logo" src="https://bandjesu.github.io/data/logo.png" alt="Logo">
+        <div>
+            <div id="header-text">Ein Ton, ein Herz</div>
+            <div id="sub-text">Jugendband Herz Jesu</div>
+        </div>
+    </div>
+    <nav>
+        <a href="https://bandjesu.github.io">Home</a>
+        <a href="https://bandjesu.github.io/mitglieder">Mitglieder</a>
+        <a href="https://bandjesu.github.io/auftritte">Auftritte</a>
+        <a href="https://bandjesu.github.io/lieder" class="active">Lieder</a>
+    </nav>
 </header>
-
-<nav>
-    <a href="https://bandjesu.github.io" class="">Home</a>
-    <a href="https://bandjesu.github.io/mitglieder">Mitglieder</a>
-    <a href="https://bandjesu.github.io/auftritte">Auftritte</a>
-    <a href="https://bandjesu.github.io/lieder" class="active">Lieder</a>
-</nav>
 
 <div id="content">
     <div id="image-container">
@@ -244,4 +247,3 @@
 
 </body>
 </html>
-
