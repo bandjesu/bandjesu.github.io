@@ -124,22 +124,21 @@
 
         #content {
             display: flex;
-            flex-direction: row; /* Change to row to align images horizontally */
-            justify-content: space-around; /* Add space between images */
-            flex-wrap: wrap; /* Allow images to wrap to the next line on smaller screens */
-            align-items: flex-start; /* Align items to the top of the container */
+            flex-direction: column;
+            align-items: center;
             margin-top: 180px;
         }
 
         .image-container {
             margin-top: 20px;
-            width: 45%; /* Adjust width to control image size and spacing */
+            width: 80%; /* Adjust width to control image size */
+            max-width: 300px; /* Set max-width for smaller screens */
         }
 
         .audio-buttons {
             display: flex;
+            flex-direction: column; /* Align buttons vertically on smaller screens */
             margin-top: 10px;
-            flex-wrap: wrap;
         }
 
         .audio-button {
@@ -235,7 +234,6 @@
         <div class="image-overlay">
             <img src="https://bandjesu.github.io/data/gloria.jpeg" alt="Gloria">
             <div>
-                <div>Gloria</div>
                 <div class="audio-buttons">
                     <button class="audio-button touch-interaction" onclick="downloadImage('https://bandjesu.github.io/data/gloria.jpeg')">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -248,6 +246,7 @@
                             <path d="M10 6H6v12h4l5 6V6z"/>
                             <path d="M0 0h24v24H0z" fill="none"/>
                         </svg>
+                        <img src="https://image.flaticon.com/icons/svg/34/34672.svg" alt="Music Note" style="width: 16px; height: 16px; margin-right: 5px;">
                         Spiele Musik
                     </button>
                 </div>
@@ -261,7 +260,6 @@
         <div class="image-overlay">
             <img src="https://bandjesu.github.io/data/another_image.jpeg" alt="Another Image">
             <div>
-                <div>Another Image</div>
                 <div class="audio-buttons">
                     <button class="audio-button touch-interaction" onclick="downloadImage('https://bandjesu.github.io/data/another_image.jpeg')">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -274,6 +272,7 @@
                             <path d="M10 6H6v12h4l5 6V6z"/>
                             <path d="M0 0h24v24H0z" fill="none"/>
                         </svg>
+                        <img src="https://image.flaticon.com/icons/svg/34/34672.svg" alt="Music Note" style="width: 16px; height: 16px; margin-right: 5px;">
                         Spiele Musik
                     </button>
                 </div>
@@ -291,7 +290,7 @@
     function downloadImage(imageUrl) {
         var link = document.createElement('a');
         link.href = imageUrl;
-        link.download = 'image.jpeg';
+        link.download = 'gloria.jpeg'; // Set download filename to "gloria.jpeg"
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
@@ -299,11 +298,15 @@
 
     function toggleAudio(audioId) {
         var audio = document.getElementById(audioId);
+        var button = document.querySelector(`[onclick="toggleAudio('${audioId}')"] .audio-button`);
+        
         if (audio.paused) {
             audio.play();
+            button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 6H6v12h4l5 6V6z"/><path d="M0 0h24v24H0z" fill="none"/></svg> Stoppe Musik';
         } else {
             audio.pause();
             audio.currentTime = 0;
+            button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 6H6v12h4l5 6V6z"/><path d="M0 0h24v24H0z" fill="none"/></svg> Spiele Musik';
         }
     }
 </script>
