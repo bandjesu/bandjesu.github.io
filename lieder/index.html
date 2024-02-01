@@ -11,15 +11,22 @@
             font-family: 'Helvetica Neue', sans-serif;
             background-color: #f9f9f9;
             color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         header {
+            position: fixed;
+            width: 100%;
+            top: 0;
             background-color: #fff;
             padding: 10px 20px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             display: flex;
             align-items: center;
             justify-content: space-between;
+            z-index: 1000;
         }
 
         #logo {
@@ -48,12 +55,14 @@
         nav {
             display: flex;
             margin-top: 10px;
+            margin-right: 20px;
         }
 
         nav a {
             text-decoration: none;
             color: #2c3e50;
-            margin-right: 20px;
+            margin-left: 15px;
+            margin-right: 15px;
             font-weight: bold;
             transition: color 0.3s ease;
         }
@@ -77,7 +86,8 @@
             }
 
             nav a {
-                margin-right: 15px;
+                margin-left: 10px;
+                margin-right: 10px;
             }
         }
 
@@ -101,13 +111,79 @@
 
             nav {
                 flex-direction: column;
-                align-items: flex-end;
+                align-items: center;
+                margin-right: 15px;
             }
 
             nav a {
+                margin-left: 0;
                 margin-right: 0;
                 margin-bottom: 10px;
             }
+        }
+
+        #content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        #image-container {
+            position: relative;
+            width: 130px;
+            height: 200px;
+            overflow: hidden;
+            border: 1px solid #000;
+            border-radius: 5px;
+        }
+
+        #image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: filter 0.3s ease;
+        }
+
+        #image-container:hover img {
+            filter: brightness(50%);
+        }
+
+        #image-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #fff;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        #image-container:hover #image-overlay {
+            opacity: 1;
+        }
+
+        #download-button,
+        #music-button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        footer {
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
         }
     </style>
 </head>
@@ -115,7 +191,7 @@
 
 <header>
     <div id="header-text-wrapper">
-        <img id="logo" src="https://bandjesu.github.io/logo.png" alt="Logo">
+        <img id="logo" src="https://bandjesu.github.io/data/logo.png" alt="Logo">
         <div>
             <div id="header-text">Ein Ton, ein Herz</div>
             <div id="sub-text">Jugendband Herz Jesu</div>
@@ -129,7 +205,37 @@
     </nav>
 </header>
 
-<!-- Your content goes here -->
+<div id="content">
+    <div id="image-container">
+        <img src="https://bandjesu.github.io/data/gloria.jpeg" alt="Gloria" id="image">
+        <div id="image-overlay">
+            <div>Gloria</div>
+            <button id="download-button" onclick="downloadImage()">Download</button>
+            <button id="music-button" onclick="playAudio()">Play Music</button>
+        </div>
+    </div>
+</div>
+
+<footer>
+    ©Benjamin Lipinski 2024
+</footer>
+
+<script>
+    function downloadImage() {
+        var link = document.createElement('a');
+        link.href = 'https://bandjesu.github.io/data/gloria.jpeg';
+        link.download = 'gloria.jpeg';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+
+    function playAudio() {
+        // Add your audio playback logic here
+        // Example: You can use the Audio API to play audio
+        alert('Audio playback functionality will be implemented here.');
+    }
+</script>
 
 </body>
 </html>
