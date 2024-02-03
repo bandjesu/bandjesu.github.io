@@ -232,16 +232,14 @@
 <div id="content">
     <div class="image-container" id="image-container-1" role="button" tabindex="0" class="touch-interaction">
         <div class="image-overlay">
-            <img src="https://via.placeholder.com/300" alt="Gloria">
+            <img src="https://bandjesu.github.io/data/gloria.jpeg" alt="Gloria">
             <div>
                 <p style="color: #fff; font-weight: bold; margin-bottom: 5px;">Gloria</p>
                 <div class="audio-buttons">
-                    <button class="audio-button touch-interaction" onclick="downloadImage('https://via.placeholder.com/300')">
-                        <img src="https://image.flaticon.com/icons/svg/148/148744.svg" alt="Download Icon">
+                    <button class="audio-button touch-interaction" onclick="downloadImage('https://bandjesu.github.io/data/gloria.jpeg')">
                         Download
                     </button>
                     <button class="audio-button touch-interaction" id="button-1" onclick="toggleAudio('audio-1', 'button-1')">
-                        <img src="https://image.flaticon.com/icons/svg/34/34672.svg" alt="Music Note" style="width: 16px; height: 16px; margin-right: 5px;">
                         Spiele Musik
                     </button>
                 </div>
@@ -249,20 +247,17 @@
             </div>
         </div>
     </div>
-
-    <!-- Add more image containers for each additional picture -->
+    
     <div class="image-container" id="image-container-2" role="button" tabindex="0" class="touch-interaction">
         <div class="image-overlay">
-            <img src="https://via.placeholder.com/300" alt="Another Image">
+            <img src="https://bandjesu.github.io/data/halleluja.jpeg" alt="Another Image">
             <div>
-                <p style="color: #fff; font-weight: bold; margin-bottom: 5px;">Gloria</p>
+                <p style="color: #fff; font-weight: bold; margin-bottom: 5px;">Halleluja</p>
                 <div class="audio-buttons">
-                    <button class="audio-button touch-interaction" onclick="downloadImage('https://via.placeholder.com/300')">
-                        <img src="https://image.flaticon.com/icons/svg/148/148744.svg" alt="Download Icon">
+                    <button class="audio-button touch-interaction" onclick="downloadImage('https://bandjesu.github.io/data/halleluja.jpeg')">
                         Download
                     </button>
                     <button class="audio-button touch-interaction" id="button-2" onclick="toggleAudio('audio-2', 'button-2')">
-                        <img src="https://image.flaticon.com/icons/svg/34/34672.svg" alt="Music Note" style="width: 16px; height: 16px; margin-right: 5px;">
                         Spiele Musik
                     </button>
                 </div>
@@ -280,7 +275,6 @@
     function downloadImage(imageUrl) {
         var link = document.createElement('a');
         link.href = imageUrl;
-        link.download = 'Gloria.jpeg'; // Set download filename to "Gloria.jpeg"
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
