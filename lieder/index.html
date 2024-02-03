@@ -275,22 +275,23 @@
     function downloadImage(imageUrl) {
         var link = document.createElement('a');
         link.href = imageUrl;
+        link.download = 'lied.jpeg';
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
     }
-
+    
     function toggleAudio(audioId, buttonId) {
         var audio = document.getElementById(audioId);
         var button = document.getElementById(buttonId);
         
         if (audio.paused) {
             audio.play();
-            button.innerHTML = '<img src="https://image.flaticon.com/icons/svg/34/34672.svg" alt="Music Note" style="width: 16px; height: 16px; margin-right: 5px;"> Stoppe Musik';
+            button.innerHTML =  'Stoppe Musik';
         } else {
             audio.pause();
             audio.currentTime = 0;
-            button.innerHTML = '<img src="https://image.flaticon.com/icons/svg/34/34672.svg" alt="Music Note" style="width: 16px; height: 16px; margin-right: 5px;"> Spiele Musik';
+            button.innerHTML = 'Spiele Musik';
         }
     }
 </script>
