@@ -236,7 +236,7 @@
             <div>
                 <p style="color: #fff; font-weight: bold; margin-bottom: 120px;">Gloria</p>
                 <div class="audio-buttons">
-                    <button class="audio-button touch-interaction" onclick="downloadImage('https://bandjesu.github.io/data/gloria.jpeg')">
+                    <button class="audio-button touch-interaction" onclick="downloadImage('https://bandjesu.github.io/data/gloria.jpeg', 'gloria.jpeg')">
                         Download
                     </button>
                     <button class="audio-button touch-interaction" id="button-1" onclick="toggleAudio('audio-1', 'button-1')">
@@ -254,7 +254,7 @@
             <div>
                 <p style="color: #fff; font-weight: bold; margin-bottom: 120px;">Halleluja</p>
                 <div class="audio-buttons">
-                    <button class="audio-button touch-interaction" onclick="downloadImage('https://bandjesu.github.io/data/halleluja.jpeg')">
+                    <button class="audio-button touch-interaction" onclick="downloadImage('https://bandjesu.github.io/data/halleluja.jpeg', 'halluja.jpeg')">
                         Download
                     </button>
                     <button class="audio-button touch-interaction" id="button-2" onclick="toggleAudio('audio-2', 'button-2')">
@@ -272,14 +272,14 @@
             <div>
                 <p style="color: #fff; font-weight: bold; margin-bottom: 120px;">Santo</p>
                 <div class="audio-buttons">
-                    <button class="audio-button touch-interaction" onclick="downloadImage('https://bandjesu.github.io/data/santo.jpeg')">
+                    <button class="audio-button touch-interaction" onclick="downloadImage('https://bandjesu.github.io/data/santo.jpeg', 'santo.jpeg')">
                         Download
                     </button>
-                    <button class="audio-button touch-interaction" id="button-2" onclick="toggleAudio('audio-2', 'button-2')">
+                    <button class="audio-button touch-interaction" id="button-2" onclick="toggleAudio('audio-3', 'button-2')">
                         Spiele Musik
                     </button>
                 </div>
-                <audio id="audio-2" src="https://bandjesu.github.io/data/santo.m4a"></audio>
+                <audio id="audio-3" src="https://bandjesu.github.io/data/santo.m4a"></audio>
             </div>
         </div>
     </div>
@@ -288,16 +288,16 @@
         <div class="image-overlay">
             <img src="bandjesu.github.io/data/herrichkommezudir.jpeg" alt="Another Image">
             <div>
-                <p style="color: #fff; font-weight: bold; margin-bottom: 120px;">Herr  ich komme zu dir</p>
+                <p style="color: #fff; font-weight: bold; margin-bottom: 120px;">Herr, ich komme zu dir</p>
                 <div class="audio-buttons">
-                    <button class="audio-button touch-interaction" onclick="downloadImage('bandjesu.github.io/data/herrichkommezudir.jpeg')">
+                    <button class="audio-button touch-interaction" onclick="downloadImage('bandjesu.github.io/data/herrichkommezudir.jpeg','Herr, ich komme zu dir.jpeg')">
                         Download
                     </button>
-                    <button class="audio-button touch-interaction" id="button-2" onclick="toggleAudio('audio-2', 'button-2')">
+                    <button class="audio-button touch-interaction" id="button-2" onclick="toggleAudio('audio-4', 'button-2')">
                         Spiele Musik
                     </button>
                 </div>
-                <audio id="audio-2" src="https://bandjesu.github.io/data/herrichkommezudir.m4a"></audio>
+                <audio id="audio-4" src="https://bandjesu.github.io/data/herrichkommezudir.m4a"></audio>
             </div>
         </div>
     </div>
@@ -307,10 +307,10 @@
 </footer>
 
 <script>
-    function downloadImage(imageUrl) {
+   function downloadImage(imageUrl, imageName) {
         var link = document.createElement('a');
         link.href = imageUrl;
-        link.download = 'lied.jpeg';
+        link.download = imageName; 
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
