@@ -121,14 +121,15 @@
                 margin-bottom: 10px;
             }
         }
-        .title {
+        title {
             font-size: 18px;
             color: #7f8c8d;
+            margin-top: 170px; /* Adjusted to match the header height */
         }
         .content {
             flex: 1; /* Use remaining vertical space for content */
             padding: 20px;
-            margin-top: 170px; /* Adjusted to match the header height */
+            margin-top: 190px; /* Adjusted to match the header height */
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
@@ -180,12 +181,11 @@
         <a href="https://bandjesu.github.io/lieder">Lieder</a>
     </nav>
 </header>
-
-<!-- Your content goes here -->
-<div class="content">
+    
     <div class="title">
         <p>Leiter</p>
     </div>
+    <div class="content">
     <div class="box">
         <img src="https://bandjesu.github.io/data/example1.jpeg" alt="Image">
         <p>Benjamin, spielt seit 8 Jahren Klavier, codiert Webseiten, ist 12, Email: Benlipinski2@gmail.com </p>
@@ -195,13 +195,12 @@
         <img src="https://bandjesu.github.io/data/example2.jpeg" alt="Image">
         <p>Michi, spielt guitarre, 5 Sterne-koch, Alter 9999999, Email: Unbekannt </p>
     </div>
+</div>
     
-    <!-- New line for spacing -->
-    <div style="clear:both;"></div>
-
     <div class="title">
         <p>Mitglieder</p>
     </div>
+  <div class="title">   
     <div class="box">
         <img src="https://bandjesu.github.io/data/example1.jpeg" alt="Image">
         <p>Clara, spielt Cello, ist nett, Lieblingshobby: Leute erschrecken </p>
@@ -211,8 +210,8 @@
         <img src="https://bandjesu.github.io/data/example2.jpeg" alt="Image">
         <p>Jonathan, ist nervig, spielt Geige, bild stimmt 1 zu 1</p>
     </div>
-</div>
-
+ </div>
+    
 <footer>
     ©Benjamin Lipinski 2024
 </footer>
