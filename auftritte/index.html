@@ -134,6 +134,11 @@
             padding: 20px;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+         }
+        .indent{
+
+       margin-left: 10px;
+       }
 
         .box {
             background-color: #fff;
@@ -185,12 +190,13 @@
 <div class="content1">
     <div class="box">
         <img src="https://bandjesu.github.io/data/example1.jpeg" alt="Image">
-        <p>Proben <br> &nbsp;  &nbsp; &nbsp; ·2.2.2024 <br> &nbsp;  &nbsp; &nbsp; ·5.2.2022 <br>  &nbsp;  &nbsp; &nbsp; ·90.90.9090 <br>Notizen<br> Schinkengipfeli!</p>
+        <p>Proben <br> <span class="indent">·2.2.2024</span> <br> <span class="indent">··5.2.2022</span> <br> <span class="indent">·90.90.9090 </span> 
+            <br>Wichtig:<br> <span class="indent">Schinkengipfeli!</span></p>
     </div>
 
     <div class="box">
         <img src="https://bandjesu.github.io/data/example2.jpeg" alt="Image">
-        <p>Auftritte<br> ·9.9.9999 <br>Wir spielen an Ostern in der Pace e bene!</p>
+        <p>Auftritte<br> <span class="indent">·9.9.9999 </span> <br>Wir spielen an Ostern in der Pace e bene!</p>
     </div>
 </div>
     
