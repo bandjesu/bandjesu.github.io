@@ -294,6 +294,42 @@
         </div>
     </div>
 
+    <div class="image-container" id="image-container-1" role="button" tabindex="0" class="touch-interaction">
+        <div class="image-overlay">
+            <img src="https://bandjesu.github.io/data/herrichkommezudir.jpeg" alt="Herr, ich komme zu dir">
+            <div>
+                <p style="color: #fff; font-weight: bold; margin-bottom: 120px;">Herr, ich komme zu dir</p>
+                <div class="audio-buttons">
+                    <button class="audio-button touch-interaction" onclick="downloadImage('https://bandjesu.github.io/data/herrichkommezudir.jpeg', 'Herr, ich komme zu dir.jpeg')">
+                        Download
+                    </button>
+                    <button class="audio-button touch-interaction" id="button-1" onclick="toggleAudio('audio-3', 'button-3')">
+                        Spiele Musik
+                    </button>
+                </div>
+                <audio id="audio-3" src="https://bandjesu.github.io/data/herrichkommezudir.m4a"></audio>
+            </div>
+        </div>
+    </div>
+    
+    <div class="image-container" id="image-container-1" role="button" tabindex="0" class="touch-interaction">
+        <div class="image-overlay">
+            <img src="https://bandjesu.github.io/data/santo.jpeg" alt="Santo">
+            <div>
+                <p style="color: #fff; font-weight: bold; margin-bottom: 120px;">Gloria</p>
+                <div class="audio-buttons">
+                    <button class="audio-button touch-interaction" onclick="downloadImage('https://bandjesu.github.io/data/santo.jpeg', 'santo.jpeg')">
+                        Download
+                    </button>
+                    <button class="audio-button touch-interaction" id="button-1" onclick="toggleAudio('audio-4', 'button-4')">
+                        Spiele Musik
+                    </button>
+                </div>
+                <audio id="audio-4" src="bandjesu.github.io/data/santo.m4a"></audio>
+            </div>
+        </div>
+    </div>
+    
     <!-- Add more image containers for each additional picture -->
 </div>
 
@@ -304,9 +340,9 @@
 <!-- Password Protection Modal -->
 <div class="password-modal" id="password-modal">
     <div class="password-modal-content">
-        <h2>Please enter the password</h2>
-        <input type="password" id="password-input" class="password-input" placeholder="Password">
-        <button onclick="checkPassword()" class="password-button">Submit</button>
+        <h2>Bitte geben Sie den Passwort ein.</h2>
+        <input type="password" id="password-input" class="password-input" placeholder="Passwort">
+        <button onclick="checkPassword()" class="password-button">Bestätigen</button>
     </div>
 </div>
 
@@ -320,7 +356,7 @@
         if (passwordInput === PASSWORD) {
             document.getElementById("password-modal").style.display = "none";
         } else {
-            alert("Incorrect password. Please try again.");
+            alert("Falsches Passwort. Bitte probieren sie es nochmals.");
         }
     }
 
