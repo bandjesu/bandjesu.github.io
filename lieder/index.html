@@ -274,103 +274,65 @@
             </div>
         </div>
     </div>
-    
+
     <div class="image-container" id="image-container-2" role="button" tabindex="0" class="touch-interaction">
         <div class="image-overlay">
-            <img src="https://bandjesu.github.io/data/Du%20bisch%20da%20gott%2C%20gloria.jpg" alt="Du bisch da gott, Gloria">
+            <img src="https://bandjesu.github.io/data/Du%20bisch%20da%20gott,%20gloria.jpg" alt="Du bisch da gott, Gloria">
             <div>
                 <p style="color: #fff; font-weight: bold; margin-bottom: 120px;">Du bisch da gott, Gloria</p>
                 <div class="audio-buttons">
-                    <button class="audio-button touch-interaction" onclick="downloadImage('https://bandjesu.github.io/data/Du%20bisch%20da%20gott%2C%20gloria.jpg', 'Du bisch da gott, gloria.jpg')">
+                    <button class="audio-button touch-interaction" onclick="downloadImage('https://bandjesu.github.io/data/Du%20bisch%20da%20gott,%20gloria.jpg', 'Du bisch da gott, gloria.jpg')">
                         Download
                     </button>
                     <button class="audio-button touch-interaction" id="button-2" onclick="toggleAudio('audio-2', 'button-2')">
                         Spiele Musik
                     </button>
                 </div>
-                <audio id="audio-2" src="https://bandjesu.github.io/data/Du%20bisch%20da%20gott%2C%20gloria.mp4"></audio>
+                <audio id="audio-2" src="https://bandjesu.github.io/data/Du%20bisch%20da%20gott,%20gloria.mp4"></audio>
             </div>
         </div>
     </div>
 
-    <div class="image-container" id="image-container-3" role="button" tabindex="0" class="touch-interaction">
-        <div class="image-overlay">
-            <img src="https://bandjesu.github.io/data/Halleluja.jpg" alt="Halleluja">
-            <div>
-                <p style="color: #fff; font-weight: bold; margin-bottom: 120px;">Halleluja</p>
-                <div class="audio-buttons">
-                    <button class="audio-button touch-interaction" onclick="downloadImage('https://bandjesu.github.io/data/Halleluja.jpg', 'Halleluja.jpg')">
-                        Download
-                    </button>
-                    <button class="audio-button touch-interaction" id="button-3" onclick="toggleAudio('audio-3', 'button-3')">
-                        Spiele Musik
-                    </button>
-                </div>
-                <audio id="audio-3" src="https://bandjesu.github.io/data/Halleluja.mp4"></audio>
-            </div>
-        </div>
-    </div>
-    
-    <div class="image-container" id="image-container-4" role="button" tabindex="0" class="touch-interaction">
-        <div class="image-overlay">
-            <img src="https://bandjesu.github.io/data/Ich%20lade%20euch%20ein.jpg" alt="Ich lade euch ein">
-            <div>
-                <p style="color: #fff; font-weight: bold; margin-bottom: 120px;">Ich lade euch ein</p>
-                <div class="audio-buttons">
-                    <button class="audio-button touch-interaction" onclick="downloadImage('https://bandjesu.github.io/data/Ich%20lade%20euch%20ein.jpg', 'Ich lade euch ein.jpg')">
-                        Download
-                    </button>
-                    <button class="audio-button touch-interaction" id="button-4" onclick="toggleAudio('audio-4', 'button-4')">
-                        Spiele Musik
-                    </button>
-                </div>
-                <audio id="audio-4" src="https://bandjesu.github.io/data/Ich%20lade%20euch%20ein.mp4"></audio>
-            </div>
-        </div>
-    </div>
-
-    <div class="image-container" id="image-container-5" role="button" tabindex="0" class="touch-interaction">
-        <div class="image-overlay">
-            <img src="https://bandjesu.github.io/data/Kyrie%20Eleison.jpg" alt="Kyrie Eleison">
-            <div>
-                <p style="color: #fff; font-weight: bold; margin-bottom: 120px;">Kyrie Eleison</p>
-                <div class="audio-buttons">
-                    <button class="audio-button touch-interaction" onclick="downloadImage('https://bandjesu.github.io/data/Kyrie%20Eleison.jpg', 'Kyrie Eleison.jpg')">
-                        Download
-                    </button>
-                    <button class="audio-button touch-interaction" id="button-5" onclick="toggleAudio('audio-5', 'button-5')">
-                        Spiele Musik
-                    </button>
-                </div>
-                <audio id="audio-5" src="https://bandjesu.github.io/data/Kyrie%20Eleison.mp4"></audio>
-            </div>
-        </div>
-    </div>
-    
-    <div class="image-container" id="image-container-6" role="button" tabindex="0" class="touch-interaction">
-        <div class="image-overlay">
-            <img src="https://bandjesu.github.io/data/Santo.jpg" alt="Santo">
-            <div>
-                <p style="color: #fff; font-weight: bold; margin-bottom: 120px;">Santo</p>
-                <div class="audio-buttons">
-                    <button class="audio-button touch-interaction" onclick="downloadImage('https://bandjesu.github.io/data/Santo.jpg', 'Santo.jpg')">
-                        Download
-                    </button>
-                    <button class="audio-button touch-interaction" id="button-6" onclick="toggleAudio('audio-6', 'button-6')">
-                        Spiele Musik
-                    </button>
-                </div>
-                <audio id="audio-6" src="https://bandjesu.github.io/data/Santo.mp4"></audio>
-            </div>
-        </div>
-    </div>
+    <!-- Add more image containers for each additional picture -->
 </div>
 
 <footer>
     ©Benjamin Lipinski 2024
 </footer>
 
+<!-- Password Protection Modal -->
+<div class="password-modal" id="password-modal">
+    <div class="password-modal-content">
+        <h2>Bitte geben Sie das Passwort ein.</h2>
+        <input type="password" id="password-input" class="password-input" placeholder="Passwort">
+        <button onclick="checkPassword()" class="password-button">Bestätigen</button>
+    </div>
+</div>
+
 <script>
+    // Hashed password (Example: "password" hashed with SHA-256)
+    const HASHED_PASSWORD = "ed9dcd6c92e3cb61e7b0c3b1b7fc48410f2f04a0f4de1b9397bba3d2a3a819ed";
+    
+    function checkPassword() {
+        const passwordInput = document.getElementById("password-input").value;
+        const hashedInput = sha256(passwordInput); // Hash the input
+        
+        if (hashedInput === HASHED_PASSWORD) {
+            document.getElementById("password-modal").style.display = "none";
+        } else {
+            alert("Falsches Passwort. Bitte versuchen Sie es erneut.");
+        }
+    }
+
+    // SHA-256 hashing function
+    function sha256(input) {
+        const crypto = window.crypto || window.msCrypto; // for IE 11 compatibility
+        const buffer = new TextEncoder().encode(input);
+        return crypto.subtle.digest("SHA-256", buffer).then(hash => {
+            return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('');
+        });
+    }
+
     function toggleAudio(audioId, buttonId) {
         var audio = document.getElementById(audioId);
         var button = document.getElementById(buttonId);
