@@ -6,7 +6,6 @@
     <title>Auftritte - Ein Ton, ein Herz</title>
     <link rel="icon" href="https://bandjesu.github.io/data/logotab.png">
     <style>
-        /* General Styles */
         body {
             margin: 0;
             padding: 0;
@@ -18,13 +17,12 @@
             min-height: 100vh;
         }
 
-        /* Header Styles */
         header {
             position: fixed;
             width: 100%;
             top: 0;
             background-color: #fff;
-            padding: 20px;
+            padding: 10px 20px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             display: flex;
             align-items: center;
@@ -124,58 +122,39 @@
             }
         }
 
-        /* Content Styles */
-        .content1,
-        .content2 {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            padding: 20px;
-            gap: 20px;
-        }
-
-        .box {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            transition: transform 0.3s ease;
-            width: calc(50% - 20px);
-            max-width: 400px;
-            text-align: center;
-        }
-
-        .box p {
-            font-size: 16px;
-            color: #555;
-        }
-
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            padding-top: 30px;
-            height: 0;
-            overflow: hidden;
-        }
-
-        .video-container iframe,
-        .video-container object,
-        .video-container embed {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        /* Footer Styles */
         footer {
             width: 100%;
             background-color: #333;
             color: #fff;
             text-align: center;
             padding: 10px 0;
-            margin-top: auto;
+            position: fixed;
+            bottom: 0;
+        }
+
+        /* New styles for the main content */
+        main {
+            margin-top: 80px; /* Adjusted for the fixed header */
+            padding: 20px;
+            flex-grow: 1; /* Allow content to grow vertically */
+        }
+
+        #performance-dates, #video-section {
+            margin-bottom: 40px; /* Add space between sections */
+        }
+
+        #performance-dates ul {
+            list-style-type: none; /* Remove default bullet points */
+            padding: 0;
+        }
+
+        #performance-dates li {
+            margin-bottom: 10px;
+        }
+
+        #video-section iframe {
+            width: 100%;
+            height: 400px;
         }
     </style>
 </head>
@@ -196,27 +175,29 @@
         <a href="https://bandjesu.github.io/lieder">Lieder</a>
     </nav>
 </header>
-    
-<div class="content1">
-    <div class="box">
-        <p>Proben <br> &nbsp;·2.2.2024 <br> &nbsp;·5.2.2022 <br> &nbsp;·90.90.9090 <br>Wichtig:<br> &nbsp;Schinkengipfeli!</p>
-    </div>
 
-    <div class="box">
-        <p>Auftritte<br> &nbsp;·9.9.9999 <br>Wir spielen an Ostern in der Pace e bene!</p>
-    </div>
-</div>
-    
+<main>
+    <!-- Performance Dates Section -->
+    <section id="performance-dates">
+        <h2>Performance Dates and Practice Schedule</h2>
+        <ul>
+            <li>Performance 1: Date and Time</li>
+            <li>Performance 2: Date and Time</li>
+            <!-- Add more performance dates and practice schedules as needed -->
+        </ul>
+    </section>
 
-<div class="content2">   
-    <div class="box">
-        <p>Wir haben am 1.1.1111 in eine Messe gespielt. Hier ein aktuelles Video:</p>
-        <div class="video-container">
-            <iframe width="560" height="315" src="https://bandjesu.github.io/data/herrerbarmedich.mp4" frameborder="0" allowfullscreen></iframe>
-        </div>
-    </div>
-</div>
-    
+    <!-- Video Section -->
+    <section id="video-section">
+        <h2>Watch Us Play</h2>
+        <!-- Replace the URL in the src attribute with the URL of your video -->
+        <video controls>
+            <source src="https://bandjesu.github.io/data/video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </section>
+</main>
+
 <footer>
     ©Benjamin Lipinski 2024
 </footer>
