@@ -139,22 +139,38 @@
             flex-grow: 1; /* Allow content to grow vertically */
         }
 
-        #performance-dates, #video-section {
-            margin-bottom: 40px; /* Add space between sections */
+        #performance-dates {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        #performance-dates h2 {
+            font-size: 24px;
+            color: #3498db;
+            margin-bottom: 20px;
+            font-weight: bold;
         }
 
         #performance-dates ul {
-            list-style-type: none; /* Remove default bullet points */
+            list-style: none;
             padding: 0;
         }
 
         #performance-dates li {
+            font-size: 18px;
             margin-bottom: 10px;
+            line-height: 1.5;
         }
 
-        #video-section iframe {
-            width: 100%;
-            height: 400px;
+        #performance-dates li span {
+            font-weight: bold;
+        }
+
+        /* New style for the horizontal line */
+        .horizontal-line {
+            border-top: 2px solid #333;
+            margin: 20px auto;
+            max-width: 80%;
         }
     </style>
 </head>
@@ -179,12 +195,10 @@
 <main>
     <!-- Performance Dates Section -->
     <section id="performance-dates">
-        <h2>Performance Dates and Practice Schedule</h2>
-        <ul>
-            <li>Performance 1: Date and Time</li>
-            <li>Performance 2: Date and Time</li>
-            <!-- Add more performance dates and practice schedules as needed -->
-        </ul>
+        <h2>Pace e Bene</h2>
+        <p>30 Mai <span>18:00</span> Aula Freie Evangelische Schule, Zürich</p>
+        <p>2024</p>
+        <div class="horizontal-line"></div>
     </section>
 
     <!-- Video Section -->
