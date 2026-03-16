@@ -1,427 +1,462 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lieder - Ein Ton, ein Herz</title>
-    <link rel="icon" href="https://bandjesu.github.io/data/logotab.png">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Helvetica Neue', sans-serif;
-            background-color: #f9f9f9;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        header {
-            position: fixed;
-            width: 100%;
-            top: 0;
-            background-color: #fff;
-            padding: 10px 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            z-index: 1000;
-        }
+<title>Lieder - Ein Ton, ein Herz</title>
+<link rel="icon" href="https://bandjesu.github.io/data/logotab.png">
 
-        #logo {
-            width: 50px;
-            height: auto;
-            margin-right: 10px;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-        #header-text-wrapper {
-            display: flex;
-            align-items: center;
-        }
+<style>
 
-        #header-text {
-            font-size: 20px;
-            color: #3498db;
-            font-weight: bold;
-            margin-right: 10px;
-        }
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
 
-        #sub-text {
-            font-size: 14px;
-            color: #7f8c8d;
-        }
+body{
+font-family:'Inter',sans-serif;
+background:linear-gradient(135deg,#f7f9fc,#eef2f7);
+color:#1f2937;
+min-height:100vh;
+display:flex;
+flex-direction:column;
+}
 
-        nav {
-            display: flex;
-            margin-top: 10px;
-            margin-right: 20px;
-        }
+/* HEADER */
 
-        nav a {
-            text-decoration: none;
-            color: #2c3e50;
-            margin-right: 30px;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
+header{
+position:fixed;
+top:0;
+width:100%;
+padding:14px 40px;
 
-        nav a:hover {
-            color: #e74c3c;
-        }
+display:flex;
+align-items:center;
+justify-content:space-between;
 
-        nav a.active {
-            text-decoration: underline;
-            color: #e74c3c;
-        }
+backdrop-filter:blur(10px);
+background:rgba(255,255,255,0.75);
+border-bottom:1px solid rgba(0,0,0,0.05);
 
-        @media screen and (max-width: 768px) {
-            #header-text {
-                font-size: 18px;
-            }
+z-index:1000;
+}
 
-            #sub-text {
-                font-size: 12px;
-            }
+#header-text-wrapper{
+display:flex;
+align-items:center;
+gap:12px;
+}
 
-            nav a {
-                margin-left: 10px;
-                margin-right: 10px;
-            }
-        }
+#logo{
+width:46px;
+}
 
-        @media screen and (max-width: 480px) {
-            #logo {
-                width: 40px;
-            }
+#header-text{
+font-size:20px;
+font-weight:600;
+color:#2563eb;
+}
 
-            header {
-                padding: 10px;
-            }
+#sub-text{
+font-size:13px;
+color:#6b7280;
+}
 
-            #header-text {
-                font-size: 16px;
-                margin-right: 5px;
-            }
+nav{
+display:flex;
+gap:30px;
+}
 
-            #sub-text {
-                font-size: 10px;
-            }
+nav a{
+text-decoration:none;
+font-weight:500;
+color:#374151;
+position:relative;
+transition:0.3s;
+}
 
-            nav {
-                flex-direction: column;
-                align-items: center;
-                margin-right: 15px;
-            }
+nav a:hover{
+color:#2563eb;
+}
 
-            nav a {
-                margin-left: 0;
-                margin-right: 0;
-                margin-bottom: 10px;
-            }
-        }
+nav a.active::after{
+content:"";
+position:absolute;
+bottom:-6px;
+left:0;
+width:100%;
+height:2px;
+background:#2563eb;
+border-radius:2px;
+}
 
-        #content {
-            display: flex;
-            flex-wrap: wrap; 
-            justify-content: space-around; 
-            align-items: center;
-            margin-top: 180px;
-        }
+/* SONG GRID */
 
-        .image-container {
-            margin: 20px;
-            width: 80%; 
-            max-width: 300px; 
-        }
+.content{
+margin-top:120px;
+padding:40px;
 
-        .audio-buttons {
-            display: flex;
-            flex-direction: column; 
-            margin-top: 10px;
-        }
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+}
 
-        .audio-button {
-            background-color: #3498db;
-            color: #fff;
-            padding: 10px;
-            margin: 5px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+/* SONG CARD */
 
-        .audio-button img {
-            width: 16px;
-            height: 16px;
-            margin-right: 5px;
-        }
+.song-card{
 
-        .image-container img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            transition: filter 0.3s ease;
-        }
+background:white;
+border-radius:18px;
+overflow:hidden;
 
-        .image-overlay {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-            border: 1px solid #000;
-            border-radius: 5px;
-        }
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
 
-        .image-overlay:hover img {
-            filter: brightness(50%);
-        }
+transition:
+transform .35s ease,
+box-shadow .35s ease;
+}
 
-        .image-overlay div {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            color: #fff;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
+.song-card:hover{
+transform:translateY(-6px);
+box-shadow:0 20px 40px rgba(0,0,0,0.12);
+}
 
-        .image-overlay:hover div {
-            opacity: 1;
-        }
+.song-card img{
+width:100%;
+height:200px;
+object-fit:cover;
+}
 
-        footer {
-            width: 100%;
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-        }
+.song-content{
+padding:18px;
+text-align:center;
+}
 
-        .password-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1001;
-        }
+.song-title{
+font-weight:600;
+margin-bottom:12px;
+}
 
-        .password-modal-content {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-        }
+/* BUTTONS */
 
-        .password-input {
-            margin-bottom: 10px;
-        }
+.audio-buttons{
+display:flex;
+flex-direction:column;
+gap:8px;
+}
 
-        .password-button {
-            background-color: #3498db;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-    </style>
+.audio-button{
+
+background:#2563eb;
+color:white;
+
+border:none;
+border-radius:8px;
+
+padding:10px;
+cursor:pointer;
+
+font-size:14px;
+transition:0.25s;
+}
+
+.audio-button:hover{
+background:#1d4ed8;
+}
+
+/* FOOTER */
+
+footer{
+margin-top:auto;
+padding:18px;
+text-align:center;
+font-size:14px;
+
+background:#111827;
+color:#9ca3af;
+}
+
+/* PASSWORD MODAL */
+
+.password-modal{
+
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+
+background:rgba(0,0,0,0.5);
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+z-index:2000;
+}
+
+.password-modal-content{
+
+background:white;
+
+padding:30px;
+border-radius:16px;
+
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+
+text-align:center;
+}
+
+.password-input{
+
+padding:10px;
+margin-top:10px;
+margin-bottom:10px;
+
+border-radius:8px;
+border:1px solid #ccc;
+width:200px;
+}
+
+.password-button{
+
+background:#2563eb;
+color:white;
+
+border:none;
+border-radius:8px;
+
+padding:10px 18px;
+cursor:pointer;
+}
+
+/* MOBILE */
+
+@media (max-width:700px){
+
+header{
+padding:12px 20px;
+}
+
+nav{
+gap:15px;
+font-size:14px;
+}
+
+.content{
+padding:25px;
+}
+
+}
+
+</style>
 </head>
+
 <body>
 
 <header>
-    <div id="header-text-wrapper">
-        <img id="logo" src="https://bandjesu.github.io/data/logo.png" alt="Logo">
-        <div>
-            <div id="header-text">Ein Ton, ein Herz</div>
-            <div id="sub-text">Jugendband Herz Jesu</div>
-        </div>
-    </div>
-    <nav>
-        <a href="https://bandjesu.github.io">Home</a>
-        <a href="https://bandjesu.github.io/mitglieder">Mitglieder</a>
-        <a href="https://bandjesu.github.io/auftritte">Auftritte</a>
-        <a href="https://bandjesu.github.io/lieder" class="active">Lieder</a>
-    </nav>
+
+<div id="header-text-wrapper">
+<img id="logo" src="https://bandjesu.github.io/data/logo.png">
+<div>
+<div id="header-text">Ein Ton, ein Herz</div>
+<div id="sub-text">Jugendband Herz Jesu</div>
+</div>
+</div>
+
+<nav>
+<a href="https://bandjesu.github.io">Home</a>
+<a href="https://bandjesu.github.io/mitglieder">Mitglieder</a>
+<a href="https://bandjesu.github.io/auftritte">Auftritte</a>
+<a href="https://bandjesu.github.io/lieder" class="active">Lieder</a>
+</nav>
+
 </header>
 
-<div id="content">
-    <div class="image-container" id="image-container-1" role="button" tabindex="0" class="touch-interaction">
-        <div class="image-overlay">
-            <img src="https://bandjesu.github.io/data/Du%20bisch%20bi%20mir.jpg" alt="Du bisch bi mir">
-            <div>
-                <p style="color: #fff; font-weight: bold; margin-bottom: 120px;">Du bisch bi mir</p>
-                <div class="audio-buttons">
-                    <button class="audio-button touch-interaction" onclick="downloadImage('https://bandjesu.github.io/data/Du%20bisch%20bi%20mir.jpg', 'Du bisch bi mir.jpg')">
-                        Download
-                    </button>
-                    <button class="audio-button touch-interaction" id="button-1" onclick="toggleAudio('audio-1', 'button-1')">
-                        Spiele Musik
-                    </button>
-                </div>
-                <audio id="audio-1" src="https://bandjesu.github.io/data/Du%20bisch%20bi%20mir.mp4"></audio>
-            </div>
-        </div>
-    </div>
 
-    <div class="image-container" id="image-container-2" role="button" tabindex="0" class="touch-interaction">
-        <div class="image-overlay">
-            <img src="https://bandjesu.github.io/data/Du%20bisch%20da%20gott,%20gloria.jpg" alt="Du bisch da gott, Gloria">
-            <div>
-                <p style="color: #fff; font-weight: bold; margin-bottom: 120px;">Du bisch da gott, Gloria</p>
-                <div class="audio-buttons">
-                    <button class="audio-button touch-interaction" onclick="downloadImage('https://bandjesu.github.io/data/Du%20bisch%20da%20gott,%20gloria.jpg', 'Du bisch da gott, gloria.jpg')">
-                        Download
-                    </button>
-                    <button class="audio-button touch-interaction" id="button-2" onclick="toggleAudio('audio-2', 'button-2')">
-                        Spiele Musik
-                    </button>
-                </div>
-                <audio id="audio-2" src="https://bandjesu.github.io/data/Du%20bisch%20da%20gott,%20gloria.mp4"></audio>
-            </div>
-        </div>
-    </div>
+<div class="content">
 
-    <div class="image-container" id="image-container-3" role="button" tabindex="0" class="touch-interaction">
-        <div class="image-overlay">
-            <img src="https://bandjesu.github.io/data/Halleluja.jpg" alt="Halleluja">
-            <div>
-                <p style="color: #fff; font-weight: bold; margin-bottom: 120px;">Halleluja</p>
-                <div class="audio-buttons">
-                    <button class="audio-button touch-interaction" onclick="downloadImage('https://bandjesu.github.io/data/Halleluja.jpg', 'Halleluja.jpg')">
-                        Download
-                    </button>
-                    <button class="audio-button touch-interaction" id="button-3" onclick="toggleAudio('audio-3', 'button-3')">
-                        Spiele Musik
-                    </button>
-                </div>
-                <audio id="audio-3" src="https://bandjesu.github.io/data/Halleluja.mp4"></audio>
-            </div>
-        </div>
-    </div>
+<div class="song-card">
+<img src="https://bandjesu.github.io/data/Du%20bisch%20bi%20mir.jpg">
+<div class="song-content">
+<div class="song-title">Du bisch bi mir</div>
 
-    <div class="image-container" id="image-container-4" role="button" tabindex="0" class="touch-interaction">
-        <div class="image-overlay">
-            <img src="https://bandjesu.github.io/data/Ich%20lade%20euch%20ein.jpg" alt="Ich lade euch ein">
-            <div>
-                <p style="color: #fff; font-weight: bold; margin-bottom: 120px;">Ich lade euch ein</p>
-                <div class="audio-buttons">
-                    <button class="audio-button touch-interaction" onclick="downloadImage('https://bandjesu.github.io/data/Ich%20lade%20euch%20ein.jpg', 'Ich lade euch ein.jpg')">
-                        Download
-                    </button>
-                    <button class="audio-button touch-interaction" id="button-4" onclick="toggleAudio('audio-4', 'button-4')">
-                        Spiele Musik
-                    </button>
-                </div>
-                <audio id="audio-4" src="https://bandjesu.github.io/data/Ich%20lade%20euch%20ein.mp4"></audio>
-            </div>
-        </div>
-    </div>
-
-    <div class="image-container" id="image-container-5" role="button" tabindex="0" class="touch-interaction">
-        <div class="image-overlay">
-            <img src="https://bandjesu.github.io/data/Kyrie%20Eleison.jpg" alt="Kyrie Eleison">
-            <div>
-                <p style="color: #fff; font-weight: bold; margin-bottom: 120px;">Kyrie Eleison</p>
-                <div class="audio-buttons">
-                    <button class="audio-button touch-interaction" onclick="downloadImage('https://bandjesu.github.io/data/Kyrie%20Eleison.jpg', 'Kyrie Eleison.jpg')">
-                        Download
-                    </button>
-                    <button class="audio-button touch-interaction" id="button-5" onclick="toggleAudio('audio-5', 'button-5')">
-                        Spiele Musik
-                    </button>
-                </div>
-                <audio id="audio-5" src="https://bandjesu.github.io/data/Kyrie%20Eleison.mp4"></audio>
-            </div>
-        </div>
-    </div>
-
-    <div class="image-container" id="image-container-6" role="button" tabindex="0" class="touch-interaction">
-        <div class="image-overlay">
-            <img src="https://bandjesu.github.io/data/Santo.jpg" alt="Santo">
-            <div>
-                <p style="color: #fff; font-weight: bold; margin-bottom: 120px;">Santo</p>
-                <div class="audio-buttons">
-                    <button class="audio-button touch-interaction" onclick="downloadImage('https://bandjesu.github.io/data/Santo.jpg', 'Santo.jpg')">
-                        Download
-                    </button>
-                    <button class="audio-button touch-interaction" id="button-6" onclick="toggleAudio('audio-6', 'button-6')">
-                        Spiele Musik
-                    </button>
-                </div>
-                <audio id="audio-6" src="https://bandjesu.github.io/data/Santo.mp4"></audio>
-            </div>
-        </div>
-    </div>
+<div class="audio-buttons">
+<button class="audio-button" onclick="downloadImage('https://bandjesu.github.io/data/Du%20bisch%20bi%20mir.jpg','Du bisch bi mir.jpg')">Download</button>
+<button class="audio-button" id="button-1" onclick="toggleAudio('audio-1','button-1')">Spiele Musik</button>
 </div>
+
+<audio id="audio-1" src="https://bandjesu.github.io/data/Du%20bisch%20bi%20mir.mp4"></audio>
+
+</div>
+</div>
+
+
+<div class="song-card">
+<img src="https://bandjesu.github.io/data/Du%20bisch%20da%20gott,%20gloria.jpg">
+<div class="song-content">
+<div class="song-title">Du bisch da gott, Gloria</div>
+
+<div class="audio-buttons">
+<button class="audio-button" onclick="downloadImage('https://bandjesu.github.io/data/Du%20bisch%20da%20gott,%20gloria.jpg','Du bisch da gott, gloria.jpg')">Download</button>
+<button class="audio-button" id="button-2" onclick="toggleAudio('audio-2','button-2')">Spiele Musik</button>
+</div>
+
+<audio id="audio-2" src="https://bandjesu.github.io/data/Du%20bisch%20da%20gott,%20gloria.mp4"></audio>
+
+</div>
+</div>
+
+
+<div class="song-card">
+<img src="https://bandjesu.github.io/data/Halleluja.jpg">
+<div class="song-content">
+<div class="song-title">Halleluja</div>
+
+<div class="audio-buttons">
+<button class="audio-button" onclick="downloadImage('https://bandjesu.github.io/data/Halleluja.jpg','Halleluja.jpg')">Download</button>
+<button class="audio-button" id="button-3" onclick="toggleAudio('audio-3','button-3')">Spiele Musik</button>
+</div>
+
+<audio id="audio-3" src="https://bandjesu.github.io/data/Halleluja.mp4"></audio>
+
+</div>
+</div>
+
+
+<div class="song-card">
+<img src="https://bandjesu.github.io/data/Ich%20lade%20euch%20ein.jpg">
+<div class="song-content">
+<div class="song-title">Ich lade euch ein</div>
+
+<div class="audio-buttons">
+<button class="audio-button" onclick="downloadImage('https://bandjesu.github.io/data/Ich%20lade%20euch%20ein.jpg','Ich lade euch ein.jpg')">Download</button>
+<button class="audio-button" id="button-4" onclick="toggleAudio('audio-4','button-4')">Spiele Musik</button>
+</div>
+
+<audio id="audio-4" src="https://bandjesu.github.io/data/Ich%20lade%20euch%20ein.mp4"></audio>
+
+</div>
+</div>
+
+
+<div class="song-card">
+<img src="https://bandjesu.github.io/data/Kyrie%20Eleison.jpg">
+<div class="song-content">
+<div class="song-title">Kyrie Eleison</div>
+
+<div class="audio-buttons">
+<button class="audio-button" onclick="downloadImage('https://bandjesu.github.io/data/Kyrie%20Eleison.jpg','Kyrie Eleison.jpg')">Download</button>
+<button class="audio-button" id="button-5" onclick="toggleAudio('audio-5','button-5')">Spiele Musik</button>
+</div>
+
+<audio id="audio-5" src="https://bandjesu.github.io/data/Kyrie%20Eleison.mp4"></audio>
+
+</div>
+</div>
+
+
+<div class="song-card">
+<img src="https://bandjesu.github.io/data/Santo.jpg">
+<div class="song-content">
+<div class="song-title">Santo</div>
+
+<div class="audio-buttons">
+<button class="audio-button" onclick="downloadImage('https://bandjesu.github.io/data/Santo.jpg','Santo.jpg')">Download</button>
+<button class="audio-button" id="button-6" onclick="toggleAudio('audio-6','button-6')">Spiele Musik</button>
+</div>
+
+<audio id="audio-6" src="https://bandjesu.github.io/data/Santo.mp4"></audio>
+
+</div>
+</div>
+
+</div>
+
 
 <footer>
-    ©Benjamin Lipinski 2024
+© Benjamin Lipinski 2024
 </footer>
 
-<!-- Password Protection Modal -->
+
 <div class="password-modal" id="password-modal">
-    <div class="password-modal-content">
-        <h2>Bitte geben Sie das Passwort ein.</h2>
-        <input type="password" id="password-input" class="password-input" placeholder="Passwort">
-        <button onclick="checkPassword()" class="password-button">Bestätigen</button>
-    </div>
+<div class="password-modal-content">
+<h2>Bitte geben Sie das Passwort ein</h2>
+
+<input type="password" id="password-input" class="password-input" placeholder="Passwort">
+
+<br>
+
+<button onclick="checkPassword()" class="password-button">
+Bestätigen
+</button>
+
+</div>
 </div>
 
-<script>
-    // Password
-    const PASSWORD = "Schinkengipfeli";
-    
-    function checkPassword() {
-        const passwordInput = document.getElementById("password-input").value;
-        
-        if (passwordInput === PASSWORD) {
-            document.getElementById("password-modal").style.display = "none";
-        } else {
-            alert("Falsches Passwort. Bitte versuchen Sie es erneut.");
-        }
-    }
 
-    function toggleAudio(audioId, buttonId) {
-        var audio = document.getElementById(audioId);
-        var button = document.getElementById(buttonId);
-        
-        if (audio.paused) {
-            audio.play();
-            button.innerHTML = "Stopp Musik";
-        } else {
-            audio.pause();
-            audio.currentTime = 0;
-            button.innerHTML = "Spiele Musik";
-        }
-    }
-    
-    function downloadImage(url, filename) {
-        fetch(url)
-            .then(response => response.blob())
-            .then(blob => {
-                const url = window.URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = filename;
-                document.body.appendChild(a);
-                a.click();
-                window.URL.revokeObjectURL(url);
-            })
-            .catch(console.error);
-    }
+<script>
+
+const PASSWORD="Schinkengipfeli";
+
+function checkPassword(){
+
+const passwordInput=document.getElementById("password-input").value;
+
+if(passwordInput===PASSWORD){
+document.getElementById("password-modal").style.display="none";
+}else{
+alert("Falsches Passwort. Bitte versuchen Sie es erneut.");
+}
+
+}
+
+function toggleAudio(audioId,buttonId){
+
+var audio=document.getElementById(audioId);
+var button=document.getElementById(buttonId);
+
+if(audio.paused){
+
+audio.play();
+button.innerHTML="Stopp Musik";
+
+}else{
+
+audio.pause();
+audio.currentTime=0;
+button.innerHTML="Spiele Musik";
+
+}
+
+}
+
+function downloadImage(url,filename){
+
+fetch(url)
+.then(response=>response.blob())
+.then(blob=>{
+
+const url=window.URL.createObjectURL(blob);
+
+const a=document.createElement('a');
+a.href=url;
+a.download=filename;
+
+document.body.appendChild(a);
+a.click();
+
+window.URL.revokeObjectURL(url);
+
+})
+.catch(console.error);
+
+}
+
 </script>
 
 </body>
